@@ -5,6 +5,7 @@
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
+    "@hookform/resolvers": "^2.9.6",
     "@mui/material": "^5.9.1",
     "@mui/styles": "^5.9.1",
     "@testing-library/jest-dom": "^5.16.4",

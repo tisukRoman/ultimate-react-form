@@ -1,3 +1,5 @@
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import { Typography } from '@mui/material';
 import FormContainer from './FormContainer';
@@ -5,9 +7,25 @@ import PrimaryButton from './PrimaryButton';
 import Input from './Input';
 import Form from './Form';
 
+const validationSchema = yup.object({
+  firstName: yup
+    .string()
+    .matches(/^([^0-9]*)$/, 'First Name should not contain digits')
+    .required('First Name required'),
+  lastName: yup
+    .string()
+    .matches(/^([^0-9]*)$/, 'Last Name should not contain digits')
+    .required('Last Name required'),
+});
+
 const Step1 = () => {
-  const { register, handleSubmit, errors } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
     mode: 'onBlur',
+    resolver: yupResolver(validationSchema),
   });
 
   const onSubmit = (data) => {
@@ -25,6 +43,8 @@ const Step1 = () => {
           name='firstName'
           type='text'
           label='First Name'
+          error={!!errors.firstName}
+          helperText={errors?.firstName?.message}
           {...register('firstName')}
         />
         <Input
@@ -32,6 +52,8 @@ const Step1 = () => {
           name='lastName'
           type='text'
           label='Last Name'
+          error={!!errors.lastName}
+          helperText={errors?.lastName?.message}
           {...register('lastName')}
         />
         <PrimaryButton type='submit'>Next</PrimaryButton>
