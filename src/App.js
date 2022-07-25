@@ -2,8 +2,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Step1 from './components/Step1';
 import Step2 from './components/Step2';
+import Step3 from './components/Step3';
 
-const Step3 = () => <div>Step3</div>;
 const Result = () => <div>Result</div>;
 
 function App() {
