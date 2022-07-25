@@ -3,7 +3,7 @@ import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    margin: theme.spacing(16),
+    margin: theme.spacing(8),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
