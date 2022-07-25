@@ -2,6 +2,7 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { useFormContext } from '../hooks/useFormContext';
 import { Typography } from '@mui/material';
 import FormContainer from './FormContainer';
 import PrimaryButton from './PrimaryButton';
@@ -20,6 +21,9 @@ const validationSchema = yup.object({
 });
 
 const Step1 = () => {
+  const navigate = useNavigate();
+  const { formContext, setFormContext } = useFormContext();
+
   const {
     register,
     handleSubmit,
@@ -27,11 +31,14 @@ const Step1 = () => {
   } = useForm({
     mode: 'onBlur',
     resolver: yupResolver(validationSchema),
+    defaultValues: {
+      firstName: formContext.firstName,
+      lastName: formContext.lastName,
+    },
   });
 
-  const navigate = useNavigate();
-
   const onSubmit = (data) => {
+    setFormContext(data);
     navigate('/step2');
   };
 

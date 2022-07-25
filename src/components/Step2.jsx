@@ -3,6 +3,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import parsePhoneNumberFromString from 'libphonenumber-js';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { useFormContext } from '../hooks/useFormContext';
 import { Checkbox, FormControlLabel, Typography } from '@mui/material';
 import FormContainer from './FormContainer';
 import PrimaryButton from './PrimaryButton';
@@ -15,6 +16,9 @@ const validationSchema = yup.object({
 });
 
 const Step2 = () => {
+  const navigate = useNavigate();
+  const { formContext, setFormContext } = useFormContext();
+
   const {
     register,
     handleSubmit,
@@ -23,6 +27,11 @@ const Step2 = () => {
   } = useForm({
     mode: 'onBlur',
     resolver: yupResolver(validationSchema),
+    defaultValues: {
+      email: formContext.email,
+      hasPhone: formContext.hasPhone,
+      phone: formContext.phone,
+    },
   });
 
   const normilizePhoneNumber = (e) => {
@@ -34,9 +43,8 @@ const Step2 = () => {
     }
   };
 
-  const navigate = useNavigate();
-
   const onSubmit = (data) => {
+    setFormContext(data);
     navigate('/step3');
   };
 
@@ -55,7 +63,15 @@ const Step2 = () => {
           {...register('email')}
         />
         <FormControlLabel
-          control={<Checkbox {...register('hasPhone')} color='primary' />}
+          control={
+            <Checkbox
+              defaultValue={formContext.hasPhone}
+              defaultChecked={formContext.hasPhone}
+              id='hasPhone'
+              color='primary'
+              {...register('hasPhone')}
+            />
+          }
           label='Do you have a phone?'
         />
         {hasPhone && (

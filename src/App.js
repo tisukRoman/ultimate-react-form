@@ -3,8 +3,7 @@ import Header from './components/Header';
 import Step1 from './components/Step1';
 import Step2 from './components/Step2';
 import Step3 from './components/Step3';
-
-const Result = () => <div>Result</div>;
+import Result from './components/Result';
 
 function App() {
   return (
@@ -12,10 +11,10 @@ function App() {
       <Header />
       <BrowserRouter>
         <Routes>
-          <Route exact path='/' element={<Step1 />} />
-          <Route exact path='/step2' element={<Step2 />} />
-          <Route exact path='/step3' element={<Step3 />} />
-          <Route exact path='/result' element={<Result />} />
+          <Route path='/' element={<Step1 />} />
+          <Route path='/step2' element={<Step2 />} />
+          <Route path='/step3' element={<Step3 />} />
+          <Route path='/result' element={<Result />} />
         </Routes>
       </BrowserRouter>
     </>
