@@ -4,7 +4,7 @@ import { makeStyles } from '@mui/styles';
 const useStyles = makeStyles((theme) => ({
   root: {
     fontFamily: theme.typography.fontFamily,
-    margin: '1em auto',
+    marginTop: theme.spacing(8),
     textAlign: 'center',
     fontSize: '40px',
     color: theme.palette.secondary.main,

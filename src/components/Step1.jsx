@@ -1,5 +1,6 @@
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { Typography } from '@mui/material';
 import FormContainer from './FormContainer';
@@ -28,8 +29,10 @@ const Step1 = () => {
     resolver: yupResolver(validationSchema),
   });
 
+  const navigate = useNavigate();
+
   const onSubmit = (data) => {
-    console.log(data);
+    navigate('/step2');
   };
 
   return (
@@ -40,7 +43,6 @@ const Step1 = () => {
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Input
           id='firstName'
-          name='firstName'
           type='text'
           label='First Name'
           error={!!errors.firstName}
@@ -49,7 +51,6 @@ const Step1 = () => {
         />
         <Input
           id='lastName'
-          name='lastName'
           type='text'
           label='Last Name'
           error={!!errors.lastName}
