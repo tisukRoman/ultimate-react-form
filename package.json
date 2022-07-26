@@ -2,7 +2,7 @@
   "name": "ultimate-form",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://tisukRoman.github.io",
+  "homepage": "https://tisukRoman.github.io/ultimate-react-form",
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
