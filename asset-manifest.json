@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/static/css/main.1b447658.css",
-    "main.js": "/static/js/main.f0c20897.js",
-    "index.html": "/index.html",
-    "main.1b447658.css.map": "/static/css/main.1b447658.css.map",
-    "main.f0c20897.js.map": "/static/js/main.f0c20897.js.map"
+    "main.css": "/ultimate-react-form/static/css/main.1b447658.css",
+    "main.js": "/ultimate-react-form/static/js/main.a5465392.js",
+    "index.html": "/ultimate-react-form/index.html",
+    "main.1b447658.css.map": "/ultimate-react-form/static/css/main.1b447658.css.map",
+    "main.a5465392.js.map": "/ultimate-react-form/static/js/main.a5465392.js.map"
   },
   "entrypoints": [
     "static/css/main.1b447658.css",
-    "static/js/main.f0c20897.js"
+    "static/js/main.a5465392.js"
   ]
 }
